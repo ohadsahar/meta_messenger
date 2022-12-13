@@ -1,3 +1,11 @@
+import { ChatInput } from './ChatInput';
+import { MessageList } from './MessageList';
+
 export default function HomePage() {
-  return <main className='text-4xl'>Welcome to the messenger</main>;
+  return (
+    <main>
+      <MessageList />
+      <ChatInput />
+    </main>
+  );
 }
