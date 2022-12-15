@@ -20,8 +20,6 @@ export const ChatInput = () => {
   const [input, setInput] = useState('');
   const { data: messages, error, mutate } = useSWR('/api/getMessages', fetcher);
 
-  console.log(messages);
-
   const handleMessage = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!input) return;
