@@ -21,10 +21,8 @@ type Props = {
 
 export const ChatInput = ({ session }: Props) => {
   const [input, setInput] = useState('');
-  const { data: messages, mutate } = useSWR(
-    `${process.env.VERCEL_URL || 'http://localhost:3000/'}/api/getMessages`,
-    fetcher
-  );
+  const url = process.env.VERCEL_URL! || 'http://localhost:3000';
+  const { data: messages, mutate } = useSWR(`${url}/api/getMessages`, fetcher);
 
   const handleMessage = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,7 +43,6 @@ export const ChatInput = ({ session }: Props) => {
     };
 
     const uploadMessageToUpstash = async () => {
-      const url = process.env.VERCEL_URL || 'http://localhost:3000';
       const response = await fetch(`${url}/api/addMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

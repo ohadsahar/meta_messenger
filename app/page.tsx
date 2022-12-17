@@ -4,7 +4,7 @@ import { unstable_getServerSession } from 'next-auth/next';
 import { Providers } from './providers';
 
 async function HomePage() {
-  const url = process.env.VERCEL_URL || 'http://localhost:3000';
+  const url = process.env.VERCEL_URL! || 'http://localhost:3000';
   const data = await fetch(`${url}/api/getMessages`).then((res) => res.json());
 
   const messages: MessageProps[] = data.messages;

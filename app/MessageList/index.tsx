@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const MessageList = ({ initialMessages }: Props) => {
-  const url = process.env.VERCEL_URL || 'http://localhost:3000';
+  const url = process.env.VERCEL_URL! || 'http://localhost:3000';
   const {
     data: messages,
     error,
