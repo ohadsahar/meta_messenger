@@ -45,7 +45,8 @@ export const ChatInput = ({ session }: Props) => {
     };
 
     const uploadMessageToUpstash = async () => {
-      const response = await fetch(`${process.env.VERCEL_URL}/api/addMessage`, {
+      const url = process.env.VERCEL_URL || 'http://localhost:3000';
+      const response = await fetch(`${url}/api/addMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),

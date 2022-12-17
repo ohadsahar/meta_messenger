@@ -12,14 +12,12 @@ type Props = {
 };
 
 export const MessageList = ({ initialMessages }: Props) => {
+  const url = process.env.VERCEL_URL || 'http://localhost:3000';
   const {
     data: messages,
     error,
     mutate,
-  } = useSWR<MessageProps[]>(
-    `${process.env.VERCEL_URL}/api/getMessages`,
-    fetcher
-  );
+  } = useSWR<MessageProps[]>(`${url}/api/getMessages`, fetcher);
 
   useEffect(() => {
     const channel = clientPusher.subscribe('messages');
