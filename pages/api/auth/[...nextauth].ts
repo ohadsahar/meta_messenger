@@ -4,11 +4,11 @@ export const authOptions = {
   // Configure one or more authentication providers
   providers: [
     FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID!,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
+      clientId: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_ID!,
+      clientSecret: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_SECRET!,
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET!,
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET!,
   pages: {
     signIn: '/auth/signin',
   },
