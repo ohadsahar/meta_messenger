@@ -1,11 +1,11 @@
-import { useSession, signIn, signOut, getProviders } from 'next-auth/react';
+import { getProviders } from 'next-auth/react';
 import Image from 'next/image';
 import { SignIn } from '.';
 
 async function SignInPage() {
   const providers = await getProviders();
   return (
-    <div>
+    <div className='grid justify-center'>
       <div>
         <Image
           className='rounded-full mx-2 object-contain'

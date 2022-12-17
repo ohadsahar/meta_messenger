@@ -18,14 +18,6 @@ export const MessageList = ({ initialMessages }: Props) => {
     mutate,
   } = useSWR<MessageProps[]>('/api/getMessages', fetcher);
 
-  // console.log('~~~~~INitial messages~~~~`');
-  // console.log(initialMessages);
-  // console.log('~~~~~INitial messages~~~~`');
-
-  // console.log('~~~Not initial!!!');
-  // console.log(messages);
-  // console.log('~~~Not initial!!!');
-
   useEffect(() => {
     const channel = clientPusher.subscribe('messages');
 

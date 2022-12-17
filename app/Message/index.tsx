@@ -1,13 +1,14 @@
 import { MessageProps } from '../ChatInput';
 import Image from 'next/image';
-
+import { useSession } from 'next-auth/react';
+import TimeAgo from 'react-timeago';
 type Props = {
   message: MessageProps;
 };
 
 export const Message = ({ message }: Props) => {
-  const isUser = true;
-
+  const { data: session } = useSession();
+  const isUser = session?.user?.email === message.email;
   return (
     <div key={message?.id} className={`flex w-fit ${isUser && 'ml-auto'}`}>
       <div className={`flex-shrink-0 ${isUser && 'order-2'}`}>
@@ -40,7 +41,7 @@ export const Message = ({ message }: Props) => {
               isUser && 'text-right'
             }`}
           >
-            {/* {new Date(message?.created_at).toLocaleString()} */}
+            <TimeAgo date={new Date(message?.created_at)} />
           </p>
         </div>
       </div>

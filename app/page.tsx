@@ -1,5 +1,7 @@
 import { ChatInput, MessageProps } from './ChatInput';
 import { MessageList } from './MessageList';
+import { unstable_getServerSession } from 'next-auth/next';
+import { Providers } from './providers';
 
 async function HomePage() {
   const url = process.env.VERCEL_URL || 'http://localhost:3000';
@@ -7,11 +9,16 @@ async function HomePage() {
 
   const messages: MessageProps[] = data.messages;
 
+  // protect an API Route
+  const session = await unstable_getServerSession();
+
   return (
-    <main>
-      <MessageList initialMessages={messages} />
-      <ChatInput />
-    </main>
+    <Providers session={session}>
+      <main>
+        <MessageList initialMessages={messages} />
+        <ChatInput session={session} />
+      </main>
+    </Providers>
   );
 }
 
