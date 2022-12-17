@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import FacebookProvider from 'next-auth/providers/facebook';
+
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -8,7 +9,7 @@ export const authOptions = {
       clientSecret: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_SECRET!,
     }),
   ],
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET!,
+  secret: process.env.NEXTAUTH_SECRET!,
   pages: {
     signIn: '/auth/signin',
   },
