@@ -2,9 +2,9 @@ import { ChatInput, MessageProps } from './ChatInput';
 import { MessageList } from './MessageList';
 import { unstable_getServerSession } from 'next-auth/next';
 import { Providers } from './providers';
+import { url } from './constant';
 
 async function HomePage() {
-  const url = process.env.VERCEL_URL! || 'http://localhost:3000';
   const data = await fetch(`${url}/api/getMessages`).then((res) => res.json());
 
   const messages: MessageProps[] = data.messages;

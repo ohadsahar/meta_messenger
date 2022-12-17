@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { clientPusher } from '../../pusher';
 import { fetcher } from '../../utils/fetchMessages';
 import { MessageProps } from '../ChatInput';
+import { url } from '../constant';
 import { Message } from '../Message';
 
 type Props = {
@@ -12,7 +13,6 @@ type Props = {
 };
 
 export const MessageList = ({ initialMessages }: Props) => {
-  const url = process.env.VERCEL_URL! || 'http://localhost:3000';
   const {
     data: messages,
     error,

@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 import useSWR from 'swr';
 import { fetcher } from '../../utils/fetchMessages';
 import { Session } from 'next-auth';
+import { url } from '../constant';
 
 export type MessageProps = {
   id: string;
@@ -21,7 +22,6 @@ type Props = {
 
 export const ChatInput = ({ session }: Props) => {
   const [input, setInput] = useState('');
-  const url = process.env.VERCEL_URL! || 'http://localhost:3000';
   const { data: messages, mutate } = useSWR(`${url}/api/getMessages`, fetcher);
 
   const handleMessage = async (event: FormEvent<HTMLFormElement>) => {
