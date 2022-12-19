@@ -2,8 +2,6 @@
 
 ## React + Next.js 13 + Tailwind CSS + SWR + Upstash + Pusher + NextAuth.js
 
-#
-
 This project was about making a clone of a Meta Messenger room.
 
 
