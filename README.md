@@ -37,4 +37,4 @@ npm run dev
 ![Screenshot](public/static/images/app_example_1.png)
 ![Screenshot](public/static/images/app_example_3.png)
 
-## Many thanks to sonny sangha for an excellent course!
+## Many thanks to Sonny Sangha for an excellent course!
