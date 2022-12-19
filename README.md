@@ -28,4 +28,13 @@ npm i
 npm run dev
 ```
 
+# App example
+
+# Desktop
+![Screenshot](public/static/images/app_example.png)
+![Screenshot](public/static/images/app_example_2.png)
+# Mobile
+![Screenshot](public/static/images/app_example_1.png)
+![Screenshot](public/static/images/app_example_3.png)
+
 ## Many thanks to sonny sangha for an excellent course!
